@@ -1,5 +1,6 @@
 import { useAppSelector } from "../../store";
 import { usePokemonList } from "../../utils/fetcher";
+import { Item } from "./item";
 
 type ListProps = {
   index?: number;
@@ -16,8 +17,8 @@ export const List = ({ index }: ListProps) => {
   return (
     <div>
       <p>
-        {data.results.map((r) => (
-          <li key={r.name}>{r.name}</li>
+        {data.results.map(({ name }) => (
+          <Item key={name} name={name}></Item>
         ))}
       </p>
     </div>
