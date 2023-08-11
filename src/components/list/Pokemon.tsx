@@ -11,7 +11,7 @@ export const Pokemon = ({ name }: PokemonProps) => {
   return (
     <li>
       <img
-        alt={data.name}
+        alt={""}
         src={data.sprites.other?.dream_world.front_default ?? undefined}
         width={32}
         height={32}

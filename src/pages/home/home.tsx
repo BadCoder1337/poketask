@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Filter } from "../../components/filter";
 import {
   AbilityList,
@@ -5,11 +6,17 @@ import {
   PokemonList,
 } from "../../components/list";
 import { Pagination } from "../../components/pagination";
-import { useAppSelector } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { reset } from "../../store/slices/pagination";
 
 export const HomePage = () => {
   const pagination = useAppSelector((state) => state.pagination);
   const filter = useAppSelector((state) => state.filter);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(reset());
+  }, [filter.abilities.length, dispatch]);
 
   return (
     <div>

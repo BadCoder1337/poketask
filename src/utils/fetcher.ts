@@ -45,18 +45,20 @@ const useAbilityList = (offset = 0, limit = 2000) =>
 
 const useFilteredPokemonList = (abilities: string[], offset = 0, limit = 20) =>
   useSWR(
-    [`/pokemon?offset=${offset}&limit=${limit}`, ...abilities],
+    [`/pokemon?offset=${offset}&limit=${limit}&abilities=${abilities}`],
     async () => {
       let pokemons: string[] = [];
       for (const ability of abilities) {
-        if (offset + limit <= pokemons.length) break;
+        if (pokemons.length >= offset + limit) break;
         const abilityPokemons = await pokemonClient
           .getAbilityByName(ability)
           .then((a) => a.pokemon.map((p) => p.pokemon.name));
         pokemons = [...new Set(abilityPokemons.concat(pokemons))];
       }
+
+      console.log(pokemons);
       return {
-        count: 0,
+        count: pokemons.length,
         next: "",
         previous: "",
         results: pokemons
