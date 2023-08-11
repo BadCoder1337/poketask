@@ -1,16 +1,34 @@
-import { List } from "../../components/list";
+import { Filter } from "../../components/filter";
+import {
+  AbilityList,
+  FilteredPokemonList,
+  PokemonList,
+} from "../../components/list";
 import { Pagination } from "../../components/pagination";
 import { useAppSelector } from "../../store";
 
 export const HomePage = () => {
   const pagination = useAppSelector((state) => state.pagination);
+  const filter = useAppSelector((state) => state.filter);
+
   return (
     <div>
-      Test task
-      <List />
+      Pokemon list
+      <Filter />
+      {/* <AbilityList />
       <div style={{ display: "none" }}>
-        <List index={pagination.index + 1} />
-      </div>
+        <AbilityList index={pagination.index + 1} />
+      </div> */}
+      {filter.abilities.length ? (
+        <FilteredPokemonList />
+      ) : (
+        <>
+          <PokemonList />
+          <div style={{ display: "none" }}>
+            <PokemonList index={pagination.index + 1} />
+          </div>
+        </>
+      )}
       <Pagination />
     </div>
   );

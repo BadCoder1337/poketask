@@ -1,13 +1,14 @@
 import { useAppSelector } from "../../store";
 import { usePokemonList } from "../../utils/fetcher";
-import { Item } from "./item";
+import { Pokemon } from "./Pokemon";
 
 type ListProps = {
   index?: number;
 };
 
-export const List = ({ index }: ListProps) => {
+export const FilteredPokemonList = ({ index }: ListProps) => {
   const pagination = useAppSelector((state) => state.pagination);
+
   const { data, error, isLoading } = usePokemonList(
     (index ?? pagination.index) * pagination.limit,
     pagination.limit
@@ -18,7 +19,7 @@ export const List = ({ index }: ListProps) => {
     <div>
       <p>
         {data.results.map(({ name }) => (
-          <Item key={name} name={name}></Item>
+          <Pokemon key={name} name={name}></Pokemon>
         ))}
       </p>
     </div>

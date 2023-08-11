@@ -1,10 +1,10 @@
 import { usePokemon } from "../../utils/fetcher";
 
-type ItemProps = {
+type PokemonProps = {
   name: string;
 };
 
-export const Item = ({ name }: ItemProps) => {
+export const Pokemon = ({ name }: PokemonProps) => {
   const { data, error, isLoading } = usePokemon(name);
 
   if (isLoading || error || !data) return <li>Loading...</li>;
