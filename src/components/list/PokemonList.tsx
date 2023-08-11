@@ -8,7 +8,6 @@ type ListProps = {
 
 export const PokemonList = ({ index }: ListProps) => {
   const pagination = useAppSelector((state) => state.pagination);
-  const filter = useAppSelector((state) => state.filter);
 
   const { data, error, isLoading } = usePokemonList(
     (index ?? pagination.index) * pagination.limit,

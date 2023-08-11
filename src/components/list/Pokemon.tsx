@@ -10,7 +10,13 @@ export const Pokemon = ({ name }: PokemonProps) => {
   if (isLoading || error || !data) return <li>Loading...</li>;
   return (
     <li>
-      {data.id} {data.name} {data.height}
+      <img
+        alt={data.name}
+        src={data.sprites.other?.dream_world.front_default ?? undefined}
+        width={32}
+        height={32}
+      ></img>
+      <span>{data.name}</span>
     </li>
   );
 };

@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../store";
-import { usePokemonList } from "../../utils/fetcher";
+import { useFilteredPokemonList } from "../../utils/fetcher";
 import { Pokemon } from "./Pokemon";
 
 type ListProps = {
@@ -8,8 +8,10 @@ type ListProps = {
 
 export const FilteredPokemonList = ({ index }: ListProps) => {
   const pagination = useAppSelector((state) => state.pagination);
+  const filter = useAppSelector((state) => state.filter);
 
-  const { data, error, isLoading } = usePokemonList(
+  const { data, error, isLoading } = useFilteredPokemonList(
+    filter.abilities,
     (index ?? pagination.index) * pagination.limit,
     pagination.limit
   );
