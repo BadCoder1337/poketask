@@ -10,11 +10,12 @@ export const Pokemon = ({ name }: PokemonProps) => {
   const { data, error, isLoading } = usePokemon(name)
 
   if (isLoading || error || !data) return <PokemonSkeleton />
+  const { dream_world: dw, "official-artwork": oa } = data.sprites.other ?? {}
   return (
     <PokemonContainer>
       <img
         alt={""}
-        src={data.sprites.other?.dream_world.front_default ?? undefined}
+        src={dw?.front_default ?? oa?.front_default ?? undefined}
       ></img>
       <div>name: {data.name}</div>
       <div>height: {data.height}</div>
