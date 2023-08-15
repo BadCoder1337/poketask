@@ -1,11 +1,7 @@
-import { useEffect } from "react";
-import { usePokemonList } from "../../utils/fetcher";
 import { useAppDispatch, useAppSelector } from "../../store";
 import {
-  setCount,
-  setInfinite,
   setNext,
-  setPrev,
+  setPrev
 } from "../../store/slices/pagination";
 
 export const Pagination = () => {

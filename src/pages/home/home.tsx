@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { Filter } from "../../components/filter";
 import {
-  AbilityList,
   FilteredPokemonList,
-  PokemonList,
+  PokemonList
 } from "../../components/list";
 import { Pagination } from "../../components/pagination";
 import { useAppDispatch, useAppSelector } from "../../store";

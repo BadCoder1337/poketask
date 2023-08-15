@@ -1,8 +1,8 @@
+import { useMemo } from "react";
+import Select from "react-select";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { setAbilities } from "../../store/slices/filter";
-import Select from "react-select";
 import { useAbilityList } from "../../utils/fetcher";
-import { useMemo } from "react";
 
 export const Filter = () => {
   const filter = useAppSelector((state) => state.filter);
