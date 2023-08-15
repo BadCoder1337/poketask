@@ -1,30 +1,24 @@
-import { useEffect } from "react";
-import { Filter } from "../../components/filter";
-import {
-  FilteredPokemonList,
-  PokemonList
-} from "../../components/list";
-import { Pagination } from "../../components/pagination";
-import { useAppDispatch, useAppSelector } from "../../store";
-import { reset } from "../../store/slices/pagination";
+import { useEffect } from "react"
+import { Filter } from "../../components/filter"
+import { FilteredPokemonList, PokemonList } from "../../components/list"
+import { Pagination } from "../../components/pagination"
+import { useAppDispatch, useAppSelector } from "../../store"
+import { reset } from "../../store/slices/pagination"
+import { HomeContainer } from "./styled"
 
 export const HomePage = () => {
-  const pagination = useAppSelector((state) => state.pagination);
-  const filter = useAppSelector((state) => state.filter);
-  const dispatch = useAppDispatch();
+  const pagination = useAppSelector(state => state.pagination)
+  const filter = useAppSelector(state => state.filter)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(reset());
-  }, [filter.abilities.length, dispatch]);
+    dispatch(reset())
+  }, [filter.abilities.length, dispatch])
 
   return (
-    <div>
-      Pokemon list
+    <HomeContainer>
+      Pokedex
       <Filter />
-      {/* <AbilityList />
-      <div style={{ display: "none" }}>
-        <AbilityList index={pagination.index + 1} />
-      </div> */}
       {filter.abilities.length ? (
         <FilteredPokemonList />
       ) : (
@@ -36,6 +30,6 @@ export const HomePage = () => {
         </>
       )}
       <Pagination />
-    </div>
-  );
-};
+    </HomeContainer>
+  )
+}
