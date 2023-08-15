@@ -7,7 +7,7 @@ import { useAbilityList } from "../../utils/fetcher";
 export const Filter = () => {
   const filter = useAppSelector((state) => state.filter);
   const dispatch = useAppDispatch();
-  const { data, error, isLoading } = useAbilityList();
+  const { data } = useAbilityList();
   const options = useMemo(
     () => data?.results.map(({ name }) => ({ value: name, label: name })) ?? [],
     [data]
