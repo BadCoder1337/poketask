@@ -11,7 +11,7 @@
 
 # Цель
 
-- Имея готовое апи https://pokeapi.co/docs/v2#resource-listspagination-section (Swagger)[https://api.swaggerhub.com/apis/pawelwelfle/PokemonApi/3.0.0] реализовать
+- Имея готовое апи https://pokeapi.co/docs/v2#resource-listspagination-section ([Swagger](https://api.swaggerhub.com/apis/pawelwelfle/PokemonApi/3.0.0)) реализовать
 
 ## Вывод списка покемонов, используя
 
