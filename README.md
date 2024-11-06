@@ -5,19 +5,20 @@
 
 # Рекомендации
 
-- использовать yarn
+- использовать npm
 - не отходить далеко от существующей структуры
 - желательно развернуть проект на Heroku, Render, Codesandbox, etc.
 
 # Цель
 
-- Имея готовое апи https://pokeapi.co/docs/v2#resource-listspagination-section реализовать
+- Имея готовое апи https://pokeapi.co/docs/v2#resource-listspagination-section (Swagger)[https://api.swaggerhub.com/apis/pawelwelfle/PokemonApi/3.0.0] реализовать
 
 ## Вывод списка покемонов, используя
 
 - TypeScript, **any** быть не должно
-- [Styled Components](https://styled-components.com/) или [EmotionJS](https://emotion.sh/docs/styled) для минимальной стилизации
+- [Tailwind](https://tailwindcss.com/) или [EmotionJS](https://emotion.sh/docs/styled) для минимальной стилизации
 - [react-query](https://tanstack.com/query) в связке с [Axios](https://github.com/axios/axios)
+- кодогенерацию API клиента (желательно)
 
 ### Уровень 1
 
